@@ -88,8 +88,10 @@ void ColumnDescription::measure (Task& task, unsigned int& minimum, unsigned int
   // The text
   // <indent> <date> <anno>
   // ...
-  if (_style == "default" ||
-      _style == "combined")
+  /* if (_style == "default" || */
+  /*     _style == "combined") */
+  /* { */
+  if (_style == "combined")
   {
     minimum = longestWord (description);
     maximum = utf8_width (description);
@@ -142,7 +144,7 @@ void ColumnDescription::measure (Task& task, unsigned int& minimum, unsigned int
   }
 
   // The text [2]
-  else if (_style == "count")
+  else if (_style == "default" || _style == "count")
   {
     // <description> + ' ' + '[' + <count> + ']'
     maximum = utf8_width (description) + 1 + 1 + format (task.annotation_count).length () + 1;
@@ -172,8 +174,10 @@ void ColumnDescription::render (
   // This is a description
   // <date> <anno>
   // ...
-  if (_style == "default" ||
-      _style == "combined")
+  /* if (_style == "default" || */
+  /*     _style == "combined") */
+  /* { */
+  if (_style == "combined")
   {
     if (task.annotation_count)
     {
@@ -235,7 +239,7 @@ void ColumnDescription::render (
   }
 
   // This is a description [2]
-  else if (_style == "count")
+  else if (_style == "default" || _style == "count")
   {
     if (task.annotation_count)
       description += " [" + format (task.annotation_count) + "]";

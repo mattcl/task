@@ -129,12 +129,12 @@ int CmdInfo::execute (std::string& output)
 
     std::map <std::string, std::string> annotations;
     task.getAnnotations (annotations);
-    for (auto& anno : annotations)
-      description += "\n"
-                   + std::string (indent, ' ')
-                   + ISO8601d (anno.first.substr (11)).toString (dateformatanno)
-                   + " "
-                   + anno.second;
+    /* for (auto& anno : annotations) */
+    /*   description += "\n" */
+    /*                + std::string (indent, ' ') */
+    /*                + ISO8601d (anno.first.substr (11)).toString (dateformatanno) */
+    /*                + " " */
+    /*                + anno.second; */
 
     row = view.addRow ();
     view.set (row, 0, STRING_COLUMN_LABEL_DESC);
